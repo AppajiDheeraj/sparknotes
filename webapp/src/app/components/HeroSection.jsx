@@ -45,7 +45,7 @@ export const HeroSection = ({ onSummaryGenerated, onLoadingChange, url, setUrl }
       {/* Left Section - SVG Illustration (Hidden on Mobile) */}
       <div className="hidden md:block">
         <Image
-          src="/hero.svg"
+          src="/Hero.svg"
           alt="Hero Illustration"
           width={650}
           height={600}

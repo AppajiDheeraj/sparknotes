@@ -1,21 +1,21 @@
 import sys
-import subprocess
 import json
-import os
+from yt_dlp import YoutubeDL
 
-yt_dlp_path = os.path.join(os.path.dirname(__file__), 'yt-dlp.exe')
 url = sys.argv[1]
 
 try:
-    subprocess.run([
-        yt_dlp_path,
-        "--write-auto-sub",
-        "--skip-download",
-        "--sub-lang", "en",
-        "--sub-format", "json3",
-        "-o", "output",
-        url
-    ], check=True)
+    ydl_opts = {
+        'skip_download': True,
+        'writesubtitles': True,
+        'writeautomaticsub': True,
+        'subtitlesformat': 'json3',
+        'subtitleslangs': ['en'],
+        'outtmpl': 'output',
+    }
+
+    with YoutubeDL(ydl_opts) as ydl:
+        ydl.download([url])
 
     with open("output.en.json3", "r", encoding="utf-8") as f:
         data = json.load(f)
