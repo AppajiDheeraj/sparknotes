@@ -1,7 +1,7 @@
 // Mindmap
 export async function POST(req) {
   const { url } = await req.json();
-  const res = await fetch("http://localhost:5000/xtended", {
+  const res = await fetch("https://sparknotes-s58d.onrender.com/xtended", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ url }),
