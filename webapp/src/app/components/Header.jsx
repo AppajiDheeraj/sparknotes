@@ -1,14 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { Button } from "../../components/ui/button";
 import { Dialog, DialogContent, DialogTitle } from "../../components/ui/dialog";
 import Image from "next/image";
-import Link from "next/link"; // For navigation
+import { Separator } from "../../components/ui/separator";
 
 export default function HeaderSection() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [contactOpen, setContactOpen] = useState(false);
 
   return (
     <div className="flex justify-between items-center px-4 mt-2 md:mt-0 md:px-12">
@@ -56,7 +54,9 @@ export default function HeaderSection() {
 
       {/* Right: Contact Us Button */}
       <button
-        onClick={() => setContactOpen(true)}
+        onClick={() =>
+          window.open("https://www.linkedin.com/in/appaji-dheeraj/", "_blank")
+        }
         className="flex items-center border bg-white border-black rounded-full overflow-hidden shadow-md"
       >
         <span
@@ -75,11 +75,9 @@ export default function HeaderSection() {
               fontFamily: "Luckiest Guy, sans-serif",
               letterSpacing: "0.1em",
             }}
-            className={
-              "font-normal text-4xl md:text-6xl underline underline-offset-6"
-            }
+            className={"font-normal text-4xl md:text-6xl"}
           >
-            Main Menu
+            🍴 YT Video Menu 🍴
           </DialogTitle>
 
           <div className="flex flex-row justify-around w-full items-center">
@@ -90,31 +88,38 @@ export default function HeaderSection() {
               height={300}
               className="md:mb-1"
             />
-            <div className="relative">
-              <Image
-              src="/Hand.svg"
-              alt="Menu"
-              width={500}
-              height={300}
-              className="-mb-10"
-            />
-            <div className="absolute top-16 right-16 w-full h-full flex flex-col gap-4">
-              {["Home", "Summary","Information", "Footer"].map((item) => (
-              <button
-                key={item}
-                onClick={() => setMenuOpen(false)}
-                className="text-xl -rotate-6 md:text-4xl text-black"
-                style={{
-                  fontFamily: "Fredoka One, sans-serif",
-                  letterSpacing: "0.1em",
-                }}
-              >
-                {item}
-              </button>
-            ))}
+            <div className="flex flex-col gap-4 border rounded-4xl p-6 md:p-12 bg-white shadow-lg">
+              {[
+                "🍿 YouTube Starter",
+                "🍔 Video Burger",
+                "🍝 MindMap Manchurian",
+                "🍜 Xtended YT Noodles",
+                "🍰 What-If Waffles",
+              ].map((item) => (
+                <button
+                  key={item}
+                  onClick={() => setMenuOpen(false)}
+                  className="text-xl md:text-4xl text-black leading-16 flex items-center justify-center"
+                  style={{
+                    fontFamily: "Luckiest Guy, sans-serif",
+                    letterSpacing: "0.1em",
+                  }}
+                >
+                  {item}
+                  {item.includes("Video Burger") && (
+                    <span className="bg-red-200 text-red-800 px-2 py-1 rounded-full text-xs ml-3">
+                      Served Hot 🔥
+                    </span>
+                  )}
+                </button>
+              ))}
+
+              <Separator className="my-2" />
+              <p className="text-center text-black text-base md:text-lg italic">
+                Prepared with ❤️ by Chef Appaji Dheeraj
+              </p>
             </div>
-            </div>
-            
+
             <Image
               src="/yellow.svg"
               alt="Menu"
@@ -123,41 +128,6 @@ export default function HeaderSection() {
               className="md:mb-1"
             />
           </div>
-        </DialogContent>
-      </Dialog>
-
-      {/* Contact Us Dialog */}
-      <Dialog open={contactOpen} onOpenChange={setContactOpen}>
-        <DialogContent className="!max-w-none !w-screen !h-screen flex flex-col items-center justify-center gap-6">
-          <h2 className="text-3xl font-bold mb-4">Contact Us</h2>
-          <Image
-            src="/telephone.svg"
-            alt="Contact Us"
-            width={600}
-            height={600}
-            className="mb-1"
-          />
-          <div className="flex flex-col gap-3">
-            <a
-              style={{ fontFamily: "Luckiest Guy, sans-serif" }}
-              href="mailto:dheeraj.nagaraja@gmail.com"
-              className="text-3xl hover:text-blue-600"
-            >
-              Email Us
-            </a>
-            <a
-              style={{ fontFamily: "Luckiest Guy, sans-serif" }}
-              href="https://linkedin.com/in/yourprofile"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-3xl hover:text-blue-600"
-            >
-              LinkedIn Profile
-            </a>
-          </div>
-          <Button variant="outline" onClick={() => setContactOpen(false)}>
-            Close
-          </Button>
         </DialogContent>
       </Dialog>
     </div>

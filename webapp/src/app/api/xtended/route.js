@@ -1,4 +1,4 @@
-// Mindmap
+// Xtended
 export async function POST(req) {
   const { url } = await req.json();
   const res = await fetch("https://sparknotes-s58d.onrender.com/xtended", {

@@ -18,7 +18,7 @@ export default function LazySection() {
               height={50}
               className="absolute -bottom-2 -left-6"
             />
-            <div className="flex flex-col items-center -mt-16">
+            <div className="flex flex-col items-center -mt-12">
               <p className="text-center text-black font-semibold text-lg">
                 Quick Video Digest
               </p>

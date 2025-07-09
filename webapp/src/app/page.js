@@ -33,9 +33,10 @@ export default function Home() {
         onLoadingChange={handleSummaryLoading}
         url={url}
         setUrl={setUrl}
+        loading={loading}
       />
       {url && <FileIcon url={url} />}
-      {summary && <SummaryBox summary={summary} loading={loading} />}
+      {url && <SummaryBox summary={summary} loading={loading} />}
       <MarqueeSection />
       <LazySection />
       <FooterSection />

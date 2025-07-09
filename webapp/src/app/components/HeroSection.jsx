@@ -8,7 +8,7 @@ import {
   AvatarImage,
 } from "../../components/ui/avatar";
 
-export const HeroSection = ({ onSummaryGenerated, onLoadingChange, url, setUrl }) => {
+export const HeroSection = ({ onSummaryGenerated, onLoadingChange, url, setUrl, loading }) => {
   const [error, setError] = useState("");
 
   const handleSummarize = async () => {
@@ -125,7 +125,7 @@ export const HeroSection = ({ onSummaryGenerated, onLoadingChange, url, setUrl }
             style={{ fontFamily: "Fredoka One, sans-serif" }}
             className="bg-[#5C3BFE] hover:bg-[#4B2ED1] disabled:bg-gray-400 text-white px-6 py-3 rounded-full transition-colors"
           >
-            GO
+            {loading ? "Summarizing..." : "GO"}
           </button>
         </div>
 
