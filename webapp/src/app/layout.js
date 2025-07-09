@@ -6,7 +6,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "📚 SparkNotes — YouTube Video Summarizer",
+  title: "SparkNotes — YouTube Video Summarizer",
   description:
     "SparkNotes is a fast, AI-powered tool that summarizes YouTube videos into key points, mind maps, and more. Skip the fluff and get straight to the core ideas.",
   keywords: [
